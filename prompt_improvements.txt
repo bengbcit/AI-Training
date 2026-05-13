@@ -1,0 +1,105 @@
+# English Results:
+PS I:\Projects and Coding\Obsidian\General\AI Training> python prompt_optimizer.py
+
+==================================================
+TESTING ALL API KEYS
+==================================================
+❌ DeepSeek API error: 402
+✅ Gemini API key is valid (gemini-2.5-flash)
+✅ Groq API key is valid
+✅ NVIDIA API key is valid
+
+🔍 Available Gemini models:
+   - gemini-2.5-flash
+   - gemini-2.5-pro
+   - gemini-2.0-flash
+   - gemini-2.0-flash-001
+   - gemini-2.0-flash-lite-001
+   - gemini-2.0-flash-lite
+   - gemini-2.5-flash-preview-tts
+   - gemini-2.5-pro-preview-tts
+   - gemma-4-26b-a4b-it
+   - gemma-4-31b-it
+==================================================
+
+Original prompt: 'tell me about AI'
+============================================================
+📝 RUNNING OPTIMIZATION WITH GROQ (most reliable):
+----------------------------------------
+Original: tell me about AI
+Improved: Provide a comprehensive overview of Artificial Intelligence (AI), including its definition, history, current applications, and future developments, as well as its potential benefits and challenges.
+Explanation: The improved prompt is more specific and provides clear guidelines on what aspects of AI to cover, resulting in a more detailed and informative response. This helps to avoid vague or overly broad responses and ensures that the output is relevant and useful. Additionally, the use of specific keywords like "definition", "history", and "applications" helps the model to understand the context and provide a more structured response.
+
+============================================================
+📝 TRYING GEMINI 2.0 FLASH:
+----------------------------------------
+Original: tell me about AI
+
+Improved: Provide a comprehensive overview of Artificial Intelligence. Please include:
+1.  A clear and concise definition of AI.
+2.  Key concepts and major sub-fields (e.g., Machine Learning, Deep Learning, Natural Language Processing, Computer Vision).
+3.  Major real-world applications across different industries.
+4.  Briefly discuss its potential impact and common ethical considerations.
+Explain this in an accessible manner suitable for a non-technical audience.
+
+Explanation:
+The original prompt "tell me about AI" is extremely broad and vague. It gives the AI no specific direction, which could lead to a generic, overwhelming, or irrelevant response. The improved prompt addresses these issues by:
+
+1.  **Adding Specificity:** Instead of a vague "tell me about," it asks for a "comprehensive overview" and then explicitly lists the key components to cover (definition, concepts, applications, impact, ethics). This guides the AI to provide a well-rounded and targeted answer.
+2.  **Clarity of Intent:** It clearly outlines what information is expected, removing ambiguity and ensuring the AI focuses on relevant aspects of AI.
+3.  **Ensuring Structure and Depth:** By breaking down the request into numbered points, it implicitly encourages the AI to structure its response logically, making it easier for the user to digest the information. It also ensures a certain depth by requiring coverage of multiple facets of AI.
+4.  **Defining Audience/Tone:** Specifying "accessible manner suitable for a non-technical audience" ensures the language used is easy to understand, avoiding overly technical jargon and making the explanation more useful to the intended user.
+
+# Chinese Results:
+==================================================
+测试所有 API 密钥
+==================================================
+❌ DeepSeek API 错误: 402
+✅ Gemini API 密钥有效（gemini-2.5-flash）
+✅ Groq API 密钥有效
+✅ NVIDIA API 密钥有效
+
+🔍 可用的 Gemini 模型：
+   - gemini-2.5-flash
+   - gemini-2.5-pro
+   - gemini-2.0-flash
+   - gemini-2.0-flash-001
+   - gemini-2.0-flash-lite-001
+   - gemini-2.0-flash-lite
+   - gemini-2.5-flash-preview-tts
+   - gemini-2.5-pro-preview-tts
+   - gemma-4-26b-a4b-it
+   - gemma-4-31b-it
+==================================================
+
+原始提示词：'tell me about AI'
+============================================================
+📝 使用 Groq 进行优化（最稳定）：
+----------------------------------------
+原始：tell me about AI
+改进：提供有关人工智能（AI）技术的概述，包括其历史、当前应用和未来发展趋势。
+说明：这个改进后的提示词更加具体明确，清晰地指出需要获取什么样的信息，这样可以得到更准确和全面的人工智能技术介绍。
+
+============================================================
+📝 使用 NVIDIA 进行优化：
+----------------------------------------
+原始：tell me about AI
+改进：Can you provide a comprehensive overview of artificial intelligence (AI), including its definition, history, applications, and current trends?
+说明：这个改进后的提示词更加具体和详细，能够帮助模型提供更准确和全面地回答。通过添加“comprehensive overview”和“包括定义、历史、应用和当前趋势”等关键词，模型可以更好地理解用户的需求，并提供更有价值的信息。
+
+# Summary of Improvements:
+| 你想要            |怎么做                 |
+| ----------------- | -------------------  |
+| 结果更详细、更具体 | 用**英文**写系统提示词 |
+| 结果更简洁、直接   | 用**中文**写系统提示词 |
+| 结果中英文混合     | 取决于模型和提示词语言 |
+
+## **不是 Groq 不好，是它听话——你给中文指令，它就按中文习惯简洁回答。**
+如果你想要 Groq 输出像 NVIDIA 那样详细的**中文**结果，可以改一下系统提示词：
+
+system_prompt = """你是一个提示词工程专家。
+请给出非常详细、具体的改进建议，不要简洁。
+返回格式：
+原始：[原始提示词]
+改进：[改进后的提示词，要详细、分点说明]
+说明：详细解释为什么这样改，至少写3个理由"""
